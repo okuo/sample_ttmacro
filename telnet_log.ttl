@@ -1,3 +1,5 @@
+;; teraterm用マクロ　telnet接続し、ログの取得を実施
+
 ;; 接続先サーバ・ユーザ名・パスワード設定
 HOSTADDR = 'IPアドレス'
 USERNAME = 'ユーザー名'
