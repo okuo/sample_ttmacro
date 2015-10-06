@@ -1,0 +1,40 @@
+;; 接続先サーバ・ユーザ名・パスワード設定
+HOSTADDR = 'IPアドレス'
+USERNAME = 'ユーザー名'
+PASSWORD = 'パスワード'
+
+;; ログ保存先指定
+LOGSPATH = 'C:\logs\'
+
+;;ログフォルダ作成実行
+;;すでにフォルダがあってもコマンドが発行されますが、問題なし
+EXECMD = 'cmd /c md '
+strconcat EXECMD LOGSPATH
+exec EXECMD
+
+;; ログファイル名の設定
+getdate LOG_NAME 'teraterm_%Y%m%d_%H%M%S_&h.log'
+FULLPATH = LOGSPATH
+strconcat FULLPATH LOG_NAME
+
+;==============================================
+;; コマンド組立て
+COMMAND = HOSTADDR
+strconcat COMMAND ':23 /nossh /T=1'
+
+;; サーバ接続
+connect COMMAND
+
+;; ログイン情報応答（ユーザ名・パスワード）
+wait 'login:'
+sendln USERNAME
+wait 'Password:'
+sendln PASSWORD
+
+;; ログ取得開始
+logopen FULLPATH 0 1 1 1 1
+;;logopen FULLPATH 0 1
+
+
+;; マクロ終了
+end
