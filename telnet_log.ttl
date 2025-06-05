@@ -10,8 +10,9 @@ LOGSPATH = 'C:\logs\'
 
 ;;ログフォルダ作成実行
 ;;すでにフォルダがあってもコマンドが発行されるが、問題なし
-EXECMD = 'cmd /c md '
+EXECMD = 'cmd /c md "'
 strconcat EXECMD LOGSPATH
+strconcat EXECMD '"'
 exec EXECMD
 
 ;; ログファイル名の設定
