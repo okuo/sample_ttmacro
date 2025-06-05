@@ -34,7 +34,7 @@ connect COMMAND
 
 ;; ログ取得開始
 logopen FULLPATH 0 1 1 1 1
-
-
+logclose
+;; ログ取得終了
 ;; マクロ終了
 end
