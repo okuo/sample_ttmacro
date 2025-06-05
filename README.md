@@ -1,11 +1,11 @@
 # Tera Term マクロ集
 
-このリポジトリでは、Tera Term を使ったログ取得の自動化マクロを提供しており、Telnet 用サンプル `telnet_log.ttl` と SSH 用テンプレート `ssh_log.ttl` を同梱しています。
+このリポジトリでは、Tera Term を使ったログ取得の自動化マクロを提供しており、Telnet 用サンプル `telnet_log.ttl` と SSH 接続用マクロ `ssh_log.ttl` を同梱しています。
 
 ## ファイル構成
 
 - `telnet_log.ttl` - Telnet 接続でログを取得するマクロ。
-- `ssh_log.ttl` - 現状は空ファイル。将来的に SSH 用マクロを追加する予定です。
+- `ssh_log.ttl` - SSH 接続でログを取得するマクロ。
 
 ## `telnet_log.ttl` の使い方
 
@@ -24,7 +24,7 @@
 
 ## 今後の拡張
 
-- `ssh_log.ttl` に SSH 接続用マクロを実装することで、Telnet 以外の接続にも対応できます。
+- `ssh_log.ttl` の機能を拡張し、鍵認証など追加オプションへの対応を検討します。
 - リポジトリの内容を充実させるため、Pull Request での改善提案も歓迎します。
 
 
