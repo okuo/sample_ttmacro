@@ -6,7 +6,7 @@ USERNAME = 'ユーザー名'
 PASSWORD = 'パスワード'
 
 ;; ログ保存先指定
-LOGSPATH = 'C:\\logs\\'
+LOGSPATH = 'C:\logs\'
 
 ;;ログフォルダ作成実行
 ;;すでにフォルダがあってもコマンドが発行されるが、問題なし
@@ -23,16 +23,14 @@ strconcat FULLPATH LOG_NAME
 ;==============================================
 ;; コマンド組立て
 COMMAND = HOSTADDR
-strconcat COMMAND ':22 /ssh /T=1'
-
+strconcat COMMAND ":22 /ssh /auth=password /user="
+strconcat COMMAND USERNAME
+strconcat COMMAND " /passwd="
+strconcat COMMAND PASSWORD
+strconcat COMMAND " /T=1"
+;; ユーザ名とパスワードはコマンドラインで指定
 ;; サーバ接続
 connect COMMAND
-
-;; ログイン情報応答（ユーザ名・パスワード）
-wait 'login:'
-sendln USERNAME
-wait 'Password:'
-sendln PASSWORD
 
 ;; ログ取得開始
 logopen FULLPATH 0 1 1 1 1
